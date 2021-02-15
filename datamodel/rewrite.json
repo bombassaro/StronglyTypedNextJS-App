@@ -1,0 +1,17 @@
+[
+  {"from": "/beach--co", "to": "/beacheco"},
+  {"from": "/coluna-aescare", "to": "colunas/colunaaescare"},
+  {"from": "/coluna-betsul","to": "/colunas/colunabetsul"},
+  {"from": "/coluna-sorte-online","to": "/colunas/colunasorteonline"},
+  {"from": "/coluna-lotosuper", "to": "/colunas/colunalotosuper"},
+  {"from": "/coluna-loteria-brasil", "to": "/colunas/colunaloteriabrasil"},
+  {"from": "/coluna-dr_-fabio-gentil", "to": "/colunas/colunadrfabiogentil"},
+  {"from": "/onze-investimentos", "to": "/colunas/onzeinvestimentos"},
+  {"from": "/rodovia-dos-tamoios", "to": "/estradas/rodovias-dos-tamoios"},
+  {"from": "/rodovia-rio-santos", "to": "/estradas/rodovia-rio-santos"},
+  {"from": "/rodovia-mogi-bertioga", "to": "/estradas/rodovia-mogi-bertioga"},
+  {"from": "/sistema-anchieta-imigrantes", "to": "/estradas/sistema-anchieta-imigrantes"},
+  {"from": "/Tv/night-48", "to": "/tvcultura/night48"},
+  {"from": "/Tv/opiniao-2_0", "to": "/tvcultura/opiniao20"},
+  {"from": "/Tv/jornal-da-praia", "to": "/tvcultura/jornaldapraia"}
+]

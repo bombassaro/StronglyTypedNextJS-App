@@ -1,6 +1,7 @@
 import { general_configuration } from 'utils/global'
 
 const api_url = general_configuration.address.api_url;
+const bff_url = general_configuration.address.bff_url;
 
 const fetch_api_main_request = async ( req ) => {
   const { query, resolvedUrl, params } = req
@@ -11,7 +12,7 @@ const fetch_api_main_request = async ( req ) => {
   let res = null
   let payload = {}
   try {
-    console.log(`*** fetching ${url_to_fetch}`);
+    console.log(`*** ssr.fetching ${url_to_fetch}`);
     res = await fetch(url_to_fetch);
     payload = await res.json()
   } catch(e) {
@@ -23,7 +24,7 @@ const fetch_api_main_request = async ( req ) => {
     props: {
       content: payload,
       request: {
-        address: {api_url},
+        address: {bff_url},
         params: params_parsed,
         query: query_parsed, 
         url: url_parsed

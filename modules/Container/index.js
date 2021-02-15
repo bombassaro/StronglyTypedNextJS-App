@@ -1,11 +1,11 @@
 import { Block } from 'prensa';
 import Metadata from 'utils/metadata';
+import Teaser from '../Teaser';
 
 const blockProps = {
   bgColor: 'primary1',
   fontColor: 'white'
 }
-
 const PageDefault = (props) => {
   return (
     <>
@@ -15,9 +15,7 @@ const PageDefault = (props) => {
   )
 }
 const Container = ({ content, request }) => {
-
-  const api_url = request.address.api_url;
-
+  const bff_url = request.address.bff_url;
   if(!content || content && content.error_page) {
     return (
       <PageDefault>
@@ -26,9 +24,8 @@ const Container = ({ content, request }) => {
     )
   }
   const { top_blocks } = content
-  const url = `${api_url}/b-1.185`
-  console.log(`top_blocks`, top_blocks, url)
-
+  const url = `${bff_url}/api/policy/1.185`
+  console.log(`*** amp.fetching`, url)
   return (
     <PageDefault>
       <amp-script id="dataFunctions" script="local-script" nodom="nodom"></amp-script>
@@ -36,11 +33,10 @@ const Container = ({ content, request }) => {
       <script id="local-script" type="text/plain" target="amp-script" dangerouslySetInnerHTML={{__html: `
         function getRemoteData() {
           return fetch('${url}')
-            .then((resp) => {
-              const payload = resp.json();
-              console.log('resp', payload);
+            .then(resp => resp.json())
+            .then((payload) => {
+              return {items: payload.top_blocks}
             })
-            .then(resp => resp.article)
         }
         exportFunction('getRemoteData', getRemoteData);
       `}} />
@@ -52,8 +48,11 @@ const Container = ({ content, request }) => {
         src="amp-script:dataFunctions.getRemoteData">
         <div placeholder="placeholder">Loading ...</div>
         <div fallback="fallback">Failed to load data.</div>
+        <template type="amp-mustache">
+          <Teaser contentId={"{{contentId}}"} />
+        </template>
       </amp-list>
-      <Block {...blockProps}>Hello World!</Block>
+        <Block {...blockProps}>Hello World!</Block>
     </PageDefault>
   )
 }

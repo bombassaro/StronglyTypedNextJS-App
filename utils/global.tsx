@@ -3,6 +3,8 @@ const env_get = (name) => process.env[name];
 const general_configuration = {
   address: {
     api_url: env_get("POLOPOLY_ADDRESS"),
+    bff_url: env_get("MIDDLEWARE_ADDRESS"),
+    bff_port: env_get("MIDDLEWARE_PORT"),
     domain: env_get("SITE_MAIN_DOMAIN")
   },
   layout: {

@@ -11,6 +11,6 @@ export const getServerSideProps = async (props) => {
   return payload;
 }
 
-export const config = {amp: 'hybrid'}
+export const config = {amp: true}
 
 export default MainComponent;
