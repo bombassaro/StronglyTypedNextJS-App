@@ -6,11 +6,11 @@ const MainComponent = ({ content, request }) => {
     <Container content={content} request={request} />
   )
 }
-MainComponent.getInitialProps = async (props) => {
+export const getServerSideProps = async (props) => {
   const payload = await fetch_server_side(props);
   return payload;
 }
 
-export const config = {amp: 'hybrid'}
+export const config = {amp: true}
 
 export default MainComponent;

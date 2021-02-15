@@ -6,17 +6,14 @@ interface Props {
   styleTags: any
 }
 class App extends Document<Props> {
-  
   static getInitialProps({ renderPage }) {
     const sheet = new ServerStyleSheet()
     const page = renderPage((AppComponent) => (props) =>
       sheet.collectStyles(<AppComponent {...props} />),
     )
-    console.log(`1`)
     const styleTags = sheet.getStyleElement()
     return {...page, styleTags}
   }
-
   render() {
     return (
       <Html lang='en'>
@@ -35,5 +32,4 @@ class App extends Document<Props> {
     )
   }
 }
-
 export default App;
