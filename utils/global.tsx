@@ -3,10 +3,10 @@ const env_get = (name) => process.env[name];
 const general_configuration = {
   address: {
     api_url: env_get("POLOPOLY_ADDRESS"),
-    domain: env_get("SITE_MAIN_DOMAIN"),
+    domain: env_get("SITE_MAIN_DOMAIN")
   },
   layout: {
-    favicon_url: '/favicon.png',
+    favicon_url: '/favicon.png'
   },
   metadata: {
     title: '',
@@ -24,16 +24,15 @@ const general_configuration = {
       url: '',
       secureUrl: '',
       width: '1000',
-      fallbackImage: '',
+      fallbackImage: ''
     },
     facebook: {
       pagesId: '',
     },
     twitter: {
       creator: '@scnoficial',
-      site: '@scnoficial',
+      site: '@scnoficial'
     }
   }
 }
-
 export { env_get, general_configuration };

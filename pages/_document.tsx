@@ -22,9 +22,9 @@ class App extends Document<Props> {
           <meta httpEquiv="x-dns-prefetch-control" content="on" />
           <meta httpEquiv='x-ua-compatible' content='ie=edge'/>
           <link rel="shortcut icon" href="/favicon.png" type="image/x-icon" />
-          <style amp-custom="" dangerouslySetInnerHTML={this.props.styleTags[0].props.dangerouslySetInnerHTML}/>
+          <style amp-custom="" dangerouslySetInnerHTML={this.props.styleTags[0].props.dangerouslySetInnerHTML} />
         </Head>
-        <body>
+        <body style={{margin: "0px"}}>
           <Main />
           <NextScript />
         </body>

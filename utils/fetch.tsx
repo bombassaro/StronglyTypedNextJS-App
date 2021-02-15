@@ -23,6 +23,7 @@ const fetch_api_main_request = async ( req ) => {
     props: {
       content: payload,
       request: {
+        address: {api_url},
         params: params_parsed,
         query: query_parsed, 
         url: url_parsed

@@ -23,7 +23,7 @@
   "include": [
     "next-env.d.ts",
     "**/*.ts",
-    "**/*.tsx"
+    "**/*.tsx", "modules/Container/index.js"
   ],
   "exclude": [
     "node_modules"
