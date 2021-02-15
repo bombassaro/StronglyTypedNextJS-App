@@ -1,3 +1,4 @@
+import Link from 'next/link';
 import { Block } from 'prensa';
 
 const blockProps = {
@@ -5,9 +6,13 @@ const blockProps = {
   fontColor: 'white'
 }
 
-const Teaser = ({ content, contentId }) => {
+const Teaser = ({ content, contentId, path }) => {
   return (
-    <Block {...blockProps}>{contentId}</Block>
+    <Block {...blockProps}>
+      <Link href={path}>
+        {contentId}
+      </Link>
+    </Block>
   )
 }
 
