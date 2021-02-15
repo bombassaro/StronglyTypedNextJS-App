@@ -1,10 +1,13 @@
-import { env_get } from 'utils/vars'
-const fetch_server_side = async ( req ) => {
+import { general_configuration } from 'utils/global'
+
+const api_url = general_configuration.address.api_url;
+
+const fetch_api_main_request = async ( req ) => {
   const { query, resolvedUrl, params } = req
   const params_parsed = params ? JSON.parse(JSON.stringify(params))[""] : [];
   const query_parsed = JSON.parse(JSON.stringify(query));
   const url_parsed = JSON.parse(JSON.stringify(resolvedUrl));
-  const url_to_fetch = `http://localhost:8080${url_parsed}`
+  const url_to_fetch = `${api_url}${url_parsed}`
   let res = null
   let payload = {}
   try {
@@ -28,4 +31,4 @@ const fetch_server_side = async ( req ) => {
   }
 }
 
-export { fetch_server_side };
+export { fetch_api_main_request };

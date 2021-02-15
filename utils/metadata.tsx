@@ -1,37 +1,13 @@
-import React from 'react'
-import Head from 'next/head'
-import {map} from 'lodash'
+import React from 'react';
+import Head from 'next/head';
+import { map } from 'lodash';
+import { general_configuration } from 'utils/global';
 
 const parse_data = (article, content, template) => {
 
-  let seo_data = {
-    title: '',
-    siteName: 'Sistema Costa Norte',
-    locale: 'pt_BR',
-    url: '',
-    description: '',
-    keywords: '',
-    type: '',
-    author: 'Sistema Costa Norte',
-    copyright: 'Sistema Costa Norte',
-    published: '',
-    modified: '',
-    image: {
-      url: '',
-      secureUrl: '',
-      width: '1000',
-      fallbackImage: '',
-    },
-    facebook: {
-      pagesId: '',
-    },
-    twitter: {
-      creator: '@scnoficial',
-      site: '@scnoficial',
-    }
-  }
+  let domain = general_configuration.address.domain;
+  let seo_data = general_configuration.metadata;
 
-  const domain = content['api_domain']
   const isArticle = template === 'articlePagelayout'
 
   const pagecontent = article ? article : content['page-content']

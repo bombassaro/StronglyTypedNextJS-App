@@ -1,5 +1,5 @@
 import Container from 'modules/Container';
-import { fetch_server_side } from 'utils/fetch';
+import { fetch_api_main_request } from 'utils/fetch';
 
 const MainComponent = ({ content, request }) => {
   return (
@@ -7,7 +7,7 @@ const MainComponent = ({ content, request }) => {
   )
 }
 export const getServerSideProps = async (props) => {
-  const payload = await fetch_server_side(props);
+  const payload = await fetch_api_main_request(props);
   return payload;
 }
 
