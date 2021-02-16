@@ -6,40 +6,63 @@ import State from './State';
 import Teaser from '../Teaser';
 
 const blockProps = {
-  bgColor: 'primary1',
-  fontColor: 'white'
+  bgColor: 'primary2',
+  fontColor: 'white',
+  width: '100%'
 }
 const queueProps = {
-  bgColor: 'primary2',
-  fontColor: 'white'
+  bgColor: 'primary3',
+  fontColor: 'white',
+  width: '100%'
+}
+const itemProps = {
+  bgColor: 'white',
+  fontColor: 'secondary1',
+  width: '100%'
+}
+
+const Template = ({ template }) => {
+  return (
+    <template id={template} type="amp-mustache">
+      <Block {...itemProps}>
+        {"{{#list}}"}
+          <Teaser 
+            contentId={"{{name}}"} 
+            path={"{{path}}"} 
+          />
+        {"{{/list}}"}
+      </Block>
+    </template>
+  )
 }
 
 const AmpList = ({ contentId, domain }) => {
   const content_id_string = replace(contentId, '.', '_');
-  const amp_state = `data_${content_id_string}`;
+  const policy = `policy/${contentId}`
+  const state = `list_state_${content_id_string}`;
+  const template = `list_template_${content_id_string}`;
   return (
     <>
-      <State contentId={contentId} name={amp_state} domain={domain} />
+      <State 
+        domain={domain} 
+        name={state} 
+        policy={policy} 
+      />
+      <Template template={template} />
       <Block {...blockProps}>Featured</Block>
       <List 
-        amp_state={amp_state} 
+        height="100px" 
         list_name="featured"
-        height="100">
-        <Teaser 
-          contentId={"{{name}}"} 
-          path={"{{path}}"} 
-        />
-      </List>
+        state={state} 
+        template={template}
+      />
       <Block {...queueProps}>Queue</Block>
       <List 
-        amp_state={amp_state} 
+        height="100px" 
         list_name="queue"
-        height="100">
-        <Teaser 
-          contentId={"{{name}}"} 
-          path={"{{path}}"} 
-        />
-      </List>
+        state={state} 
+        template={template}
+      />
     </>
   )
 }

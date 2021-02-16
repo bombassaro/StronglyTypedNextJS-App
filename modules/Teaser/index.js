@@ -2,11 +2,11 @@ import Link from 'next/link';
 import { Block } from 'prensa';
 
 const blockProps = {
-  bgColor: 'primary3',
-  fontColor: 'white'
+  bgColor: 'white',
+  fontColor: 'black',
+  width: '100%'
 }
-
-const Teaser = ({ content, contentId, path }) => {
+const Teaser = ({ contentId, path }) => {
   return (
     <Block {...blockProps}>
       <Link href={path}>
@@ -15,5 +15,4 @@ const Teaser = ({ content, contentId, path }) => {
     </Block>
   )
 }
-
 export default Teaser;

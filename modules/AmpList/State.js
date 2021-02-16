@@ -1,5 +1,5 @@
-const State = ({ contentId, domain, name }) => {
-  const url = `${domain}/api/policy/${contentId}`
+const State = ({ domain, name, policy }) => {
+  const url = `${domain}/api/${policy}`
   console.log(`*** amp-state.fetching`, url)
   return (
     <amp-state id={name} src={url}>

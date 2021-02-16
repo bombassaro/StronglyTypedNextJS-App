@@ -1,16 +1,18 @@
-const List = ({amp_state, children, height, list_name}) => {
+import { Block } from 'prensa';
+
+const List = ({state, template, height, list_name}) => {
   return (
-    <amp-list
-      width="auto"
-      height={height}
-      layout="fixed-height"
-      src={`amp-state:${amp_state}.${list_name}`}>
-      <div placeholder="placeholder">Loading ...</div>
-      <div fallback="fallback">Failed to load data.</div>
-      <template type="amp-mustache">
-        {children}
-      </template>
-    </amp-list>
+    <Block align="row" width="100%">
+      <amp-list
+        template={template}
+        layout="flex-item"
+        height={height}
+        width="auto"
+        src={`amp-state:${state}.${list_name}`}>
+        <div placeholder="placeholder">Loading ...</div>
+        <div fallback="fallback">Failed to load data.</div>
+      </amp-list>
+    </Block>
   )
 }
 export default List;

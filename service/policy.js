@@ -1,8 +1,8 @@
 const { fetch_api_bff_request } = require('./fetch');
 
 const load_data = (req, res) => {
-  let {policy} = req.params
-  let request_url = `/?r=policy&policy=${policy}`
+  let { mode, policy } = req.params
+  let request_url = `/?r=${mode}&policy=${policy}`
   return fetch_api_bff_request(request_url).then((payload) => {
     return res.status(200).json(payload)
   }).catch((error) => {
